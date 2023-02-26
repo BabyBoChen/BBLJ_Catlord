@@ -1,4 +1,4 @@
-# bbljcatlord
+# BBLJ_Carlod
 
 ## Project setup
 ```
@@ -17,3 +17,6 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Netlify:
+https://bblj-catlord.netlify.app/
