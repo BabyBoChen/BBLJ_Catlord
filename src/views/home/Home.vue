@@ -28,7 +28,6 @@
   left: 50%;
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  background-color: #fcfce6;
   width: 100%;
   max-width: 768px;
   height: 100%;
@@ -36,6 +35,7 @@
 }
 .menu{
   padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 </style>
 

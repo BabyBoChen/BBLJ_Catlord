@@ -30,6 +30,7 @@ export default {
     margin-top: 2rem;
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    overflow-x: auto;
 }
 .menu-item:hover {
     background-color: #1a17e1;

@@ -44,7 +44,6 @@
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    background-color: #fcfce6;
     width: 100%;
     max-width: 768px;
     height: 100%;
@@ -92,7 +91,7 @@
     transition: all 0.5s ease-out;
 }
 .result {
-    padding: 10px;
+    padding: 5px;
     border: 0px;
     margin: 0px;
 }
@@ -126,7 +125,7 @@
     transform: translateY(-50%);
     width: 100%;
     max-height: 100%;
-    padding: 10px;
+    padding: 5px;
     margin: 0;
     overflow: auto;
 }
@@ -137,8 +136,7 @@
 }
 .paw-wrapper{
     position: relative;
-    height: 40vw;
-    max-height: 40vh;
+    height: 10em;
 }
 .paw-png{
     position: absolute;

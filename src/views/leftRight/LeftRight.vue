@@ -52,7 +52,6 @@
   left: 50%;
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  background-color: #fcfce6;
   width: 100%;
   max-width: 768px;
   height: 100%;
@@ -87,8 +86,8 @@
 
 .cat-png-wrapper{
   position: relative;
-  height: 50vw;
-  max-height: 30vh;
+  height: 8em;
+  
   margin: 0;
 }
 
