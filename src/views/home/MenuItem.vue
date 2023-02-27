@@ -6,16 +6,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'MenuItem',
-  props: {
-    title: String,
-    page: String,
-  }
-}
-</script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .menu-item {
@@ -48,3 +38,13 @@ export default {
   color: #dee117;
 }
 </style>
+
+<script>
+export default {
+  name: 'MenuItem',
+  props: {
+    title: String,
+    page: String,
+  }
+}
+</script>
