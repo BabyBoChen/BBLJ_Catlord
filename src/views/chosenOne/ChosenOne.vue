@@ -3,43 +3,39 @@
         <TitleBar title="神選之人(抽籤)" :showGoBackButton="true" />
         <div class="content-wrapper" ref="contentWrapper">
             <div class="layer1" ref="layer1">
-                <div class="row">
-                    <div class="col-sm-6 col-12">
-                        <div class="line">
-                            <div class="input-group">
-                                <label>從<input type="number" ref="chooseMin" class="form-control input-number" value="1" min="0" max="65535" /></label>
-                            </div>
-                            <div class="input-group">
-                                <label>到<input type="number" ref="chooseMax" class="form-control input-number" value="10" min="1" max="65535" /></label>
-                            </div>
+                <div class="fit-content">
+                    <div class="line">
+                        <div class="input-group">
+                            <label>從<input type="number" ref="chooseMin" class="form-control input-number" value="1" min="0" max="65535" /></label>
                         </div>
-                        <div class="line">
-                            <div class="input-group">
-                                <label>選<input type="number" ref="chooseCnt" class="form-control input-number" value="1" min="1" max="100" />個號碼</label>
-                            </div>
-                        </div>
-                        <div class="line">
-                            <div class="input-group">
-                                <label><input ref="canRepeat" class="form-check-input" type="checkbox" />重複中獎</label>
-                            </div>
+                        <div class="input-group">
+                            <label>到<input type="number" ref="chooseMax" class="form-control input-number" value="10" min="1" max="65535" /></label>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-12">
-                        <div class="line v-center">
-                            <div id="btnStart" ref="btnStart" @click="start()">
-                                <h1 class="v-center" id="lblStart">開始</h1>
-                            </div>
+                    <div class="line">
+                        <div class="input-group">
+                            <label>選<input type="number" ref="chooseCnt" class="form-control input-number" value="1" min="1" max="100" />個號碼</label>
                         </div>
-                        <div class="bottom-padding"></div>
+                    </div>
+                    <div class="line">
+                        <div class="input-group">
+                            <label><input ref="canRepeat" class="form-check-input" type="checkbox" />重複中獎</label>
+                        </div>
                     </div>
                 </div>
+                <div class="line">
+                    <div id="btnStart" ref="btnStart" @click="start()">
+                        <h1 class="v-center" id="lblStart">開始</h1>
+                    </div>
+                </div>
+                <div class="bottom-padding"></div>
             </div>
         
             <div class="layer2" ref="layer2">
                 <div class="instruction" ref="instruction">{{instruction}}</div>
-                <div class="poop" ref="poop1"></div>
-                <div class="poop" ref="poop2"></div>
-                <div class="poop" ref="poop3"></div>
+                <div class="poop" ref="poop1"><label class="v-center poop-num" ref="num1"></label></div>
+                <div class="poop" ref="poop2"><label class="v-center poop-num" ref="num2"></label></div>
+                <div class="poop" ref="poop3"><label class="v-center poop-num" ref="num3"></label></div>
                 <div class="hide" ref="resultDiv" id="resultDiv">
                     <div id="resultMsg">{{resultMsg}}</div>
                     <button ref="btnRefresh" id="btnRefresh" class="" @click="refreshPage()" disabled><i class="fa-solid fa-arrows-rotate"></i>再選一次</button>
@@ -64,15 +60,21 @@
         left: 0%;
         height: 100%;
         background-color: #fcfce6;
-        text-align: left;
+        text-align: center;
         padding-top: 10px;
         padding-left: 10px;
         padding-right: 10px;
         transition: all 0.5s ease-out;
     }
 
+    .fit-content {
+        display: inline-block;
+        width:fit-content;
+    }
+
     .line {
         margin-bottom: 10px;
+        text-align: left;
     }
     .input-group {
         display: inline;
@@ -162,7 +164,13 @@
         transition: all 0.5s ease-out;
     }
 
+    .poop-num {
+        font-weight: bolder;
+        font-size: 1.5em;
+    }
+
     #resultDiv {
+        text-align: center;
         padding-top: 11em;
         padding-bottom: 10px;
     }
@@ -230,7 +238,7 @@
         data() {
             let model = {
                 instruction: "🙏請貓神選擇...", 
-                resultMsg: "貓神選擇了: ",
+                resultMsg: "😸貓神選擇了: ",
             };
             return model;
         },
@@ -251,7 +259,7 @@
                 this.$refs.poop2.classList.remove("fall");
                 this.$refs.poop3.classList.remove("fall");
                 this.$refs.resultDiv.classList.add("hide");
-                this.$data.resultMsg = "貓神選擇了: ";
+                this.$data.resultMsg = "😸貓神選擇了: ";
                 this.$refs.btnRefresh.disabled = true;
             },
             start() {
@@ -278,18 +286,23 @@
                 for (let i = 0; i < selectedNumbers.length; i++) {
                     this.$data.resultMsg += selectedNumbers[i];
                     if (i < selectedNumbers.length - 1) {
-                        this.$data.resultMsg += ",";
+                        this.$data.resultMsg += ", ";
                     }
                 }
                 this.$refs.layer1.classList.add("flyout");
                 this.$refs.poop1.classList.add("d-1000");
                 this.$refs.poop1.classList.add("fall");
+                this.$refs.num1.innerHTML = `${selectedNumbers[0]}`;
                 let delayMs = 1600;
                 if (cnt > 1) {
                     this.$refs.poop2.classList.add("d-2000");
                     this.$refs.poop2.classList.add("fall");
-                    this.$refs.poop3.classList.add("d-2500");
-                    this.$refs.poop3.classList.add("fall");
+                    this.$refs.num2.innerHTML = `${selectedNumbers[1]}`;
+                    if (cnt > 2) {
+                        this.$refs.poop3.classList.add("d-2500");
+                        this.$refs.poop3.classList.add("fall");
+                        this.$refs.num3.innerHTML = `...`;
+                    }
                     delayMs = 3100;
                 }
                 
