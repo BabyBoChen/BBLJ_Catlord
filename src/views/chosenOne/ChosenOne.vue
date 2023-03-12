@@ -109,6 +109,7 @@
 
     #lblStart {
         font-weight: bolder;
+        font-size: 1.5em;
     }
 
     .v-center {
