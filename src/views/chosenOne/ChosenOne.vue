@@ -141,6 +141,7 @@
         padding-left: 10px;
         padding-right: 10px;
         padding-bottom: 10px;
+        overflow: hidden;
     }
 
     .instruction {

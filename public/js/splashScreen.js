@@ -13,8 +13,8 @@ function showSplashScreenAsync(imgSrc, millisecond) {
         });
 
         let splashScreenHtmlString = `
-        <div style="max-height:100vh;max-height:100svh;z-index:9999;text-align: center;overflow:hidden;">
-            <img style="width:100%;height:calc(100vh - 3em);height:calc(100svh - 3em);object-fit: contain;" src="${src}" />
+        <div style="position:relative;height:100vh;height:100svh;z-index:9999;text-align:center;overflow:hidden;">
+            <img style="position:relative;top:50%;-ms-transform: translateY(-50%);transform: translateY(-50%);width:100%;height:90vh;height:90svh;object-fit: contain;" src="${src}" />
         </div>`;
         let splashScreen = htmlToElement(splashScreenHtmlString);
         document.querySelector("body").appendChild(splashScreen);
