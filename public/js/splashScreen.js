@@ -12,8 +12,10 @@ function showSplashScreenAsync(imgSrc, millisecond) {
             return URL.createObjectURL(imgBlob);
         });
 
+        let bgSrc = "assets/splashScreenBg_450x637.png";
+
         let splashScreenHtmlString = `
-        <div style="position:relative;height:100vh;height:100svh;z-index:9999;text-align:center;overflow:hidden;">
+        <div style="position:relative;height:100vh;height:100svh;z-index:9999;background-image: url('${bgSrc}');text-align:center;overflow:hidden;">
             <img style="position:relative;top:50%;-ms-transform: translateY(-50%);transform: translateY(-50%);width:100%;height:90vh;height:90svh;object-fit: contain;" src="${src}" />
         </div>`;
         let splashScreen = htmlToElement(splashScreenHtmlString);
