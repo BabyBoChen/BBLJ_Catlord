@@ -160,11 +160,11 @@
     }
 
     .paw-left {
-        right: 0;
+        right: 10px;
     }
 
     .paw-right {
-        left: 0;
+        left: 10px;
     }
 
     .paw-covered {
